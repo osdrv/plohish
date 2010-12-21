@@ -1,0 +1,17 @@
+<%= form_for(@oversight) do |f| %>
+  <% if @oversight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@oversight.errors.count, "error") %> prohibited this oversight from being saved:</h2>
+
+      <ul>
+      <% @oversight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

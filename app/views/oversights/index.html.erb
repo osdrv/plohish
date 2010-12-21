@@ -1,0 +1,21 @@
+<h1>Listing oversights</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @oversights.each do |oversight| %>
+  <tr>
+    <td><%= link_to 'Show', oversight %></td>
+    <td><%= link_to 'Edit', edit_oversight_path(oversight) %></td>
+    <td><%= link_to 'Destroy', oversight, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Oversight', new_oversight_path %>
