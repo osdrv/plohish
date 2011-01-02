@@ -1,0 +1,12 @@
+<% if @user.nil? %>
+  <script>auth('<%= url_for(:controller => :vk_user, :action => :auth) %>')</script>
+<% else %>
+  <h3>Хорошими делами прославиться нельзя. Зато можно попытаться плохими. Давай, расскажи всем что ты сегодня сделал плохого.</h3>
+  <div class='oversight-list'>
+    <%= render :partial => 'list' %>
+  </div>
+  <div class='form'>
+    <%= render :partial => 'form' %>
+  </div>
+  <script>init()</script>
+<% end %>

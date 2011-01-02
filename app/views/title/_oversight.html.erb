@@ -1,0 +1,17 @@
+<%= link_to vk_user_avatar(oversight.vk_user), vk_user_url(oversight.vk_user) %>
+<strong><%= vk_user_link(oversight.vk_user) %></strong>
+<div class='oversight'>
+  <%= h(oversight.text) %>
+</div>
+<div class='marks'>
+  <%= link_to '+', url_for(:controller => :oversights, :action => :mark, :id => oversight._id, :mark => 'like') %> 
+  <%= oversight.mark.to_i %> 
+  <%= link_to '–', url_for(:controller => :oversights, :action => :mark, :id => oversight._id, :mark => 'dislike') %>
+  <% users = oversight.mee_too_users %>
+  <% users_count = users.count %>
+  <strong>+1:</strong>
+  <% users.each_with_index do |u, i| %>
+    <%= vk_user_link(u) %><%= '' if i < users_count %> 
+  <% end %>
+  <%= link_to 'я тоже', url_for(:controller => :oversights, :action => :mee_too, :id => oversight._id) %>
+</div>

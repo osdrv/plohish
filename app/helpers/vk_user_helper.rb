@@ -1,0 +1,2 @@
+module VkUserHelper
+end

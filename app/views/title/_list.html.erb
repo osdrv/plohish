@@ -1,0 +1,5 @@
+<% if @oversights.length > 0 %>
+  <%= render :partial => 'oversight', :collection => @oversights %>
+<% else %>
+  <strong>плохих поступков пока никто не совершил видимо</strong>
+<% end %>

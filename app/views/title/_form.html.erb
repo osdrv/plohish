@@ -1,0 +1,30 @@
+<span id='first_name'><%= @user.first_name %></span>,  есть о чем расказать?
+<%= form_for(@form) do |f| %>
+  <% if @form.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@form.errors.count, "error") %> prohibited this oversight from being saved:</h2>
+      <ul>
+      <% @form.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div id='form-userpic'>
+    <% if !@user.photo.nil? %>
+      <img src='<%= @user.photo %>' alt='<%= @user.name %>' />
+    <% end %>
+  <img
+  </div>
+  <div class='fields'>
+    <ul>
+      <li>
+        <%= f.text_area :text, :suggest => 'Что натворил?', :rows => 5, :cols => 50 %>
+      </li>
+    </ul>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag('Добавить') %>
+  </div>
+<% end %>
